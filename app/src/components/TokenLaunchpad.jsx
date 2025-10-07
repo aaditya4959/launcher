@@ -2,6 +2,7 @@ import { Keypair, SystemProgram, Transaction } from "@solana/web3.js";
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
 import { MINT_SIZE, TOKEN_2022_PROGRAM_ID, createInitializeMint2Instruction, createMint, getMinimumBalanceForRentExemptMint } from "@solana/spl-token"
 
+
 export function TokenLaunchpad() {
     const { connection } = useConnection();
     const wallet = useWallet();
