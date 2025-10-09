@@ -17,11 +17,13 @@ export function TokenLaunchpad() {
         
         const mintKeypair = Keypair.generate();
 
+
+        // there is some problem with accessing the value from the ref.
         const metadata = {
             mint: mintKeypair.publicKey,
-            name: nameRef.current.value,
-            symbol: symbolRef.current.value,
-            uri: imageRef.current.value,
+            name: nameRef.current.value.toString(),
+            symbol: symbolRef.current.value.toString(),
+            uri: imageRef.current.value.toString(),
             additionalMetadata: [],
         };
 
@@ -100,7 +102,9 @@ export function TokenLaunchpad() {
         flexDirection: 'column'
     }}>
         <h1>Solana Token Launchpad</h1>
-        <input className='inputText' type='text' placeholder='Name' ref={nameRef}></input> <br />
+        <input className='inputText' type='text' placeholder='Name' ref={nameRef} onChange={() => {
+            console.log(nameRef.current.value);
+        }}></input> <br />
         <input className='inputText' type='text' placeholder='Symbol' ref={symbolRef}></input> <br />
         <input className='inputText' type='text' placeholder='Image URL' ref={imageRef}></input> <br />
         <input className='inputText' type='text' placeholder='Initial Supply' ref={supplyRef}></input> <br />
